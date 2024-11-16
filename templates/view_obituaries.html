@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View submitted obituaries">
+    <meta name="keywords" content="obituary, memorial, death">
+    <meta property="og:title" content="All Obituaries">
+    <meta property="og:description" content="Browse all the submitted obituaries">
+    <meta property="og:image" content="path_to_image">
+    <meta property="og:url" content="http://localhost:5000/view_obituaries">
+    <title>All Obituaries</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>All Obituaries</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Date of Birth</th>
+                <th>Date of Death</th>
+                <th>Author</th>
+                <th>Content</th>
+            </tr>
+            {% for obituary in obituaries %}
+            <tr>
+                <td>{{ obituary[1] }}</td>
+                <td>{{ obituary[2] }}</td>
+                <td>{{ obituary[3] }}</td>
+                <td>{{ obituary[5] }}</td>
+                <td>{{ obituary[4] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

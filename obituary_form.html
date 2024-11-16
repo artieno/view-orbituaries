@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Submit an obituary to our platform">
+    <meta name="keywords" content="obituary, death, memorial">
+    <meta property="og:title" content="Submit an Obituary">
+    <meta property="og:description" content="A platform to submit obituaries and celebrate life.">
+    <meta property="og:image" content="path_to_image">
+    <meta property="og:url" content="http://localhost:5000">
+    <title>Submit Obituary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Submit an Obituary</h1>
+        <form action="/submit_obituary" method="POST" id="obituary-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter name" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="date_of_birth" required>
+            </div>
+            <div class="form-group">
+                <label for="dod">Date of Death</label>
+                <input type="date" id="dod" name="date_of_death" required>
+            </div>
+            <div class="form-group">
+                <label for="content">Obituary Content</label>
+                <textarea id="content" name="content" placeholder="Write the obituary content here" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" placeholder="Enter your name" required>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("obituary-form").addEventListener("submit", function(e) {
+            if (!confirm("Are you sure you want to submit this obituary?")) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
